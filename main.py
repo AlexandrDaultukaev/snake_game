@@ -29,10 +29,14 @@ while game_is_on:
     time.sleep(0.1)
     snake.move()
     if snake.head.distance(food) <= 15:
+        snake.add_segment()
         score.increase_score()
         food.refresh()
 
     for i in range(2):
+        # probably snake.head.position()[i]**2 > 280**2 would be better(for brevity)
+        # probably snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280
+        # would be faster
         if snake.head.position()[i] > 280 or snake.head.position()[i] < -280:
             score.game_over()
             game_is_on = False
