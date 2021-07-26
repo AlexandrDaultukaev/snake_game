@@ -9,7 +9,9 @@ class ScoreBoard(Turtle):
         self.ht()
         self.penup()
         self.setpos(0, 280)
-        self.set_score()
+        self.write(f"Score = {self.score}", False, align="center", font=("Arial", 10, "italic"))
 
-    def set_score(self):
+    def increase_score(self):
+        self.clear()
+        self.score += 1
         self.write(f"Score = {self.score}", False, align="center", font=("Arial", 10, "italic"))
