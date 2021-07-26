@@ -14,7 +14,6 @@ sc.tracer(0)
 score = 0
 snake = Snake()
 
-# print(f"Size: {snake[1].turtlesize()}")
 food = Food()
 
 
@@ -27,13 +26,16 @@ sc.update()
 game_is_on = True
 while game_is_on:
     sc.update()
+    time.sleep(0.1)
     snake.move()
     if snake.head.distance(food) <= 15:
         score.increase_score()
         food.refresh()
-    time.sleep(0.1)
-    sc.update()
 
+    for i in range(2):
+        if snake.head.position()[i] > 280 or snake.head.position()[i] < -280:
+            score.game_over()
+            game_is_on = False
 
 
 
