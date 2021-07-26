@@ -26,10 +26,9 @@ while game_is_on:
     sc.update()
     snake.move()
     if snake.head.distance(food) <= 21:
-        food.reset()
         score += 1
         sc.title(f"Snake Game. Score {score}")
-        food.__init__()
+        food.refresh()
     time.sleep(0.1)
     sc.update()
 
