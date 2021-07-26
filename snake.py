@@ -1,6 +1,7 @@
 from turtle import Turtle
-class Snake():
 
+
+class Snake():
     def __init__(self):
         self.snake = []
         for i in range(3):
