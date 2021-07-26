@@ -3,6 +3,8 @@ from turtle import Turtle, Screen
 from snake import Snake
 from food import Food
 from scoreboard import ScoreBoard
+
+
 sc = Screen()
 sc.setup(width=600, height=600)
 sc.bgcolor("black")
