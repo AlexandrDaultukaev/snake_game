@@ -37,16 +37,15 @@ while game_is_on:
         # probably snake.head.position()[i]**2 > 280**2 would be better(for brevity)
         # probably snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280
         # would be faster
-        if snake.head.position()[i] > 280 or snake.head.position()[i] < -280:
-            score.game_over()
-            game_is_on = False
+        # if snake.head.position()[i] > 280 or snake.head.position()[i] < -280:
+        #     score.game_over()
+        #     game_is_on = False
 
-        for segment in snake.snake:
-            if segment == snake.head:
-                pass
-            elif snake.head.distance(segment) < 10:
+        for segment in snake.snake[0: len(snake.snake)-1]:
+            if snake.head.distance(segment) < 10:
                 score.game_over()
                 game_is_on = False
+    sc.update()
 
 
 
