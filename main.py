@@ -1,6 +1,7 @@
 import time
 from turtle import Turtle, Screen
 from snake import Snake
+from food import Food
 sc = Screen()
 sc.setup(width=600, height=600)
 sc.bgcolor("black")
@@ -11,6 +12,7 @@ sc.tracer(0)
 snake = Snake()
 
 # print(f"Size: {snake[1].turtlesize()}")
+food = Food()
 
 
 sc.onkey(snake.move_left, "Left")
@@ -23,6 +25,9 @@ game_is_on = True
 while game_is_on:
     sc.update()
     snake.move()
+    if snake.head.distance(food) <= 21:
+        food.reset()
+        food.__init__()
     time.sleep(0.1)
     sc.update()
 

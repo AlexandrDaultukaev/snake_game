@@ -5,6 +5,7 @@ class Snake():
         self.snake = []
         for i in range(3):
             self.snake.append(Turtle())
+            self.head = self.snake[len(self.snake)-1]
             self.snake[i].penup()
             self.snake[i].shape("square")
             self.snake[i].color("white")
@@ -18,21 +19,21 @@ class Snake():
                 self.snake[segment].goto(self.snake[segment + 1].pos())
 
     def move_up(self):
-        if self.snake[len(self.snake)-1].heading() == 270:
+        if self.head.heading() == 270:
             return
-        self.snake[len(self.snake)-1].setheading(90)
+        self.head.setheading(90)
 
     def move_right(self):
-        if self.snake[len(self.snake)-1].heading() == 180:
+        if self.head.heading() == 180:
             return
-        self.snake[len(self.snake) - 1].setheading(0)
+        self.head.setheading(0)
 
     def move_left(self):
-        if self.snake[len(self.snake)-1].heading() == 0:
+        if self.head.heading() == 0:
             return
-        self.snake[len(self.snake) - 1].setheading(180)
+        self.head.setheading(180)
 
     def move_down(self):
-        if self.snake[len(self.snake) - 1].heading() == 90:
+        if self.head.heading() == 90:
             return
-        self.snake[len(self.snake) - 1].setheading(270)
+        self.head.setheading(270)
