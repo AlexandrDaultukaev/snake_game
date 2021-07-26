@@ -5,10 +5,10 @@ from food import Food
 sc = Screen()
 sc.setup(width=600, height=600)
 sc.bgcolor("black")
-sc.title("Snake Game")
+sc.title("Snake Game. Score 0")
 sc.listen()
 sc.tracer(0)
-
+score = 0
 snake = Snake()
 
 # print(f"Size: {snake[1].turtlesize()}")
@@ -27,6 +27,8 @@ while game_is_on:
     snake.move()
     if snake.head.distance(food) <= 21:
         food.reset()
+        score += 1
+        sc.title(f"Snake Game. Score {score}")
         food.__init__()
     time.sleep(0.1)
     sc.update()
