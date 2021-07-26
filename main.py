@@ -25,7 +25,7 @@ game_is_on = True
 while game_is_on:
     sc.update()
     snake.move()
-    if snake.head.distance(food) <= 21:
+    if snake.head.distance(food) <= 15:
         score += 1
         sc.title(f"Snake Game. Score {score}")
         food.refresh()
