@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 
-class Snake():
+class Snake:
     def __init__(self):
         self.snake = []
         for i in range(3):
@@ -13,6 +13,9 @@ class Snake():
         self.head = self.snake[len(self.snake) - 1]
 
     def add_segment(self):
+        """
+        Activated when snake ate food
+        """
         self.snake.insert(0, Turtle())
         self.snake[0].penup()
         self.snake[0].shape("square")
@@ -20,6 +23,9 @@ class Snake():
         self.snake[0].setpos(self.snake[1].position())
 
     def move(self):
+        """
+        Moves all segments of the snake
+        """
         for segment in range(len(self.snake)):
             if segment == len(self.snake) - 1:
                 self.snake[segment].forward(20)
