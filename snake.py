@@ -4,6 +4,10 @@ from turtle import Turtle
 class Snake:
     def __init__(self):
         self.snake = []
+        self.head = 0
+        self.create_snake()
+
+    def create_snake(self):
         for i in range(3):
             self.snake.append(Turtle())
             self.snake[i].penup()
@@ -11,6 +15,16 @@ class Snake:
             self.snake[i].color("white")
             self.snake[i].goto(20 * i, 0)
         self.head = self.snake[len(self.snake) - 1]
+
+    def delete_snake(self):
+        for i in range(len(self.snake)):
+            self.snake[i].reset()
+        self.snake = []
+
+    def start_position(self):
+        self.delete_snake()
+        self.create_snake()
+
 
     def add_segment(self):
         """

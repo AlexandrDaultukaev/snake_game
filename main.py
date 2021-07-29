@@ -44,14 +44,15 @@ while game_is_on:
         # probably snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280
         # would be faster
         if snake.head.position()[i] > 280 or snake.head.position()[i] < -280:
-            score.game_over()
-            game_is_on = False
+            score.reset()
+            snake.start_position()
+
 
     # Detect collision with tail
     for segment in snake.snake[0: len(snake.snake) - 1]:
         if snake.head.distance(segment) < 10:
-            score.game_over()
-            game_is_on = False
+            score.reset()
+            snake.start_position()
     sc.update()
 
 sc.exitonclick()
