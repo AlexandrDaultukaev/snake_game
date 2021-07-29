@@ -28,3 +28,7 @@ class ScoreBoard(Turtle):
             self.high_score = self.score
         self.score = 0
         self.update_scoreboard()
+
+    def goodbye(self):
+        self.goto(0, 0)
+        self.write("Goodbye!", False, align=ALIGNMENT, font=FONT)

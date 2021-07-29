@@ -4,6 +4,15 @@ from snake import Snake
 from food import Food
 from scoreboard import ScoreBoard
 
+game_is_on = True
+
+
+def quit_game():
+    global game_is_on
+    game_is_on = False
+    score.goodbye()
+
+
 # Screen customization
 sc = Screen()
 sc.setup(width=600, height=600)
@@ -11,8 +20,6 @@ sc.bgcolor("black")
 sc.title("Snake Game")
 sc.listen()
 sc.tracer(0)
-
-
 
 snake = Snake()
 
@@ -23,13 +30,12 @@ sc.onkey(snake.move_left, "Left")
 sc.onkey(snake.move_right, "Right")
 sc.onkey(snake.move_down, "Down")
 sc.onkey(snake.move_up, "Up")
-
+sc.onkey(quit_game, "q")
 
 score = ScoreBoard()
 
-
 sc.update()
-game_is_on = True
+
 while game_is_on:
     with open("data.txt") as file:
         score.high_score = int(file.read())
