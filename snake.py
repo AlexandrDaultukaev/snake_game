@@ -4,10 +4,13 @@ from turtle import Turtle
 class Snake:
     def __init__(self):
         self.snake = []
-        self.head = 0
+        self.head = Turtle()
         self.create_snake()
 
     def create_snake(self):
+        """
+        Creates new snake with head and 2 tail pieces
+        """
         for i in range(3):
             self.snake.append(Turtle())
             self.snake[i].penup()
@@ -17,14 +20,19 @@ class Snake:
         self.head = self.snake[len(self.snake) - 1]
 
     def delete_snake(self):
+        """
+        Removes whole snake
+        """
         for i in range(len(self.snake)):
             self.snake[i].reset()
         self.snake = []
 
     def start_position(self):
+        """
+        After detecting collision, deletes dead snake and create a new one
+        """
         self.delete_snake()
         self.create_snake()
-
 
     def add_segment(self):
         """
