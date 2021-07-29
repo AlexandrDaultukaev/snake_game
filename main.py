@@ -37,9 +37,6 @@ score = ScoreBoard()
 sc.update()
 
 while game_is_on:
-    with open("data.txt") as file:
-        score.high_score = int(file.read())
-        score.update_scoreboard()
     sc.update()
     time.sleep(0.1)
     snake.move()
@@ -57,16 +54,12 @@ while game_is_on:
         # would be faster
         if snake.head.position()[i] > 280 or snake.head.position()[i] < -280:
             score.reset()
-            with open("data.txt", "w") as file:
-                file.write(str(score.high_score))
             snake.start_position()
 
     # Detect collision with tail
     for segment in snake.snake[0: len(snake.snake) - 1]:
         if snake.head.distance(segment) < 10:
             score.reset()
-            with open("data.txt", "w") as file:
-                file.write(str(score.high_score))
             snake.start_position()
     sc.update()
 
